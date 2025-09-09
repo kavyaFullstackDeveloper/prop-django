@@ -8,7 +8,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ["https://prop-django-4.onrender.com", "localhost"]
+ALLOWED_HOSTS = ["prop-django-4.onrender.com", "localhost"]
 
 
 INSTALLED_APPS = [
