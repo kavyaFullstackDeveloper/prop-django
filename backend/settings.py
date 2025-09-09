@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key-please-change-in-prod"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["prop-django-4.onrender.com", "localhost", "127.0.0.1"] # Added 127.0.0.1 for local testing
+ALLOWED_HOSTS = ["*", "localhost", "127.0.0.1"] # Added 127.0.0.1 for local testing
 
 # Application definition
 
