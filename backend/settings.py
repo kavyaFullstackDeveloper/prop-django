@@ -38,6 +38,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "backend.urls"
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # local React dev
+    "https://property-site-gji3lfve5-kavyas-projects-1830bb39.vercel.app/",  # update after deploying frontend
+]
 
 # Templates
 TEMPLATES = [
