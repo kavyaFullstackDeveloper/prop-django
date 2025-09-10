@@ -20,7 +20,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "properties",  
-     "corsheaders",
+    "corsheaders",
     "rest_framework", 
 ]
 
@@ -28,6 +28,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # ✅ static files
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -39,10 +40,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "backend.urls"
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # local React dev
-    "https://property-site-gji3lfve5-kavyas-projects-1830bb39.vercel.app/",  # update after deploying frontend
+    "http://localhost:3000",
+    "https://property-site-gji3lfve5-kavyas-projects-1830bb39.vercel.app"
 ]
 
+
+CORS_ALLOW_ALL_ORIGINS = True
 # Templates
 TEMPLATES = [
     {
