@@ -26,10 +26,9 @@ INSTALLED_APPS = [
 
 # Middleware
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",  # Must be first
     "django.middleware.security.SecurityMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # ✅ static files
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -38,15 +37,17 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
 ROOT_URLCONF = "backend.urls"
+# CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://property-site-gji3lfve5-kavyas-projects-1830bb39.vercel.app"
+    "http://localhost:3000",  # for local dev
+    "https://property-site-gji3lfve5-kavyas-projects-1830bb39.vercel.app", 
+    "https://prop-django-4.onrender.com",  # deployed frontend or API calls
 ]
 
+CORS_ALLOW_ALL_ORIGINS = False  # ⚠️ disable True in prod
 
-CORS_ALLOW_ALL_ORIGINS = True
-# Templates
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -100,3 +101,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = ["https://prop-django-4.onrender.com"]
 
+
+
+# username: kavyasri
+# password: Kavya@123
