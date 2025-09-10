@@ -14,6 +14,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key-please-change-in-prod"
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["prop-django-4.onrender.com", "localhost", "127.0.0.1"] # Added 127.0.0.1 for local testing
+DJANGO_SETTINGS_MODULE = backend.settings
+
 
 # Application definition
 
@@ -38,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'prop_django_4.urls' # Assuming your project's main urls.py is here
+# ROOT_URLCONF = 'prop_django_4.urls' # Assuming your project's main urls.py is here
 
 TEMPLATES = [
     {
