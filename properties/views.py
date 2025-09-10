@@ -16,9 +16,12 @@ class PropertyListView(generics.ListAPIView):
     filter_backends = [filters.SearchFilter]
     search_fields = ["name", "location__city", "location__country"]
 
-@api_view(['POST', 'GET'])  # allow GET too
+@api_view(['POST', 'GET'])
 def seed_properties(request):
-    """Seed database with demo property listings"""
+    """Seed database with fresh demo property listings"""
+    # 🚀 Clear existing data to avoid duplicates
+    Property.objects.all().delete()
+
     cities = ['New York', 'London', 'Paris', 'Tokyo', 'Sydney', 'Berlin', 'Toronto']
     props = []
 
@@ -35,10 +38,10 @@ def seed_properties(request):
             status=random.choice(["For Sale", "For Rent"]),
             rating=round(random.uniform(3.0, 5.0), 1),
             amenities=["Gym", "Pool", "Parking", "Garden"],
-            agent={"name": "Agent Smith", "phone": "123-456-7890"},
+            agent={"name": f"Agent {i+1}", "phone": f"+123456789{i}"},
             images=[f"https://picsum.photos/400/300?random={i}"]
         ))
 
     Property.objects.bulk_create(props)  # 🚀 Fast insert
 
-    return Response({"message": "20 demo properties added ✅"})
+    return Response({"message": "20 fresh demo properties added ✅"})

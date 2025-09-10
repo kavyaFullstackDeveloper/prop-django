@@ -19,14 +19,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "properties",  
+    "properties",
     "corsheaders",
-    "rest_framework", 
+    "rest_framework",
 ]
 
 # Middleware
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",  # Must be first
+    "corsheaders.middleware.CorsMiddleware",  # Must be at the top
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -37,16 +37,16 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-
 ROOT_URLCONF = "backend.urls"
-# CORS
+
+# ✅ CORS Settings
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # for local dev
-    "https://property-site-gji3lfve5-kavyas-projects-1830bb39.vercel.app", 
-    "https://prop-django-4.onrender.com",  # deployed frontend or API calls
+    "http://localhost:3000",  # local dev
+    "https://property-site-88h6you9l-kavyas-projects-1830bb39.vercel.app",  # ✅ Correct deployed frontend
 ]
 
-CORS_ALLOW_ALL_ORIGINS = False  # ⚠️ disable True in prod
+CORS_ALLOW_ALL_ORIGINS = False  # Keep False in production for safety
+CORS_ALLOW_CREDENTIALS = True 
 
 TEMPLATES = [
     {
@@ -97,11 +97,13 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default PK field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# ✅ CSRF for Render
 if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = ["https://prop-django-4.onrender.com"]
+    CSRF_TRUSTED_ORIGINS = [
+        "https://prop-django-4.onrender.com",
+        "https://property-site-88h6you9l-kavyas-projects-1830bb39.vercel.app",
+    ]
 
 
-
+# Demo admin creds
 # username: kavyasri
 # password: Kavya@123
