@@ -20,11 +20,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "properties",  
+     "corsheaders",
     "rest_framework", 
 ]
 
 # Middleware
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # ✅ static files
     "django.contrib.sessions.middleware.SessionMiddleware",

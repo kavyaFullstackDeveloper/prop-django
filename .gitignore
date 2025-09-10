@@ -2,3 +2,11 @@
 __pycache__/
 db.sqlite3
 /staticfiles
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+ALLOWED_HOSTS = ["prop-django-4.onrender.com", "localhost"]
+
+Build command = pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput
+
+Startcommand = gunicorn backend.wsgi
