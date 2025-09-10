@@ -99,3 +99,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # ✅ CSRF for Render
 if not DEBUG:
     CSRF_TRUSTED_ORIGINS = ["https://prop-django-4.onrender.com"]
+
